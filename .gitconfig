@@ -1,0 +1,21 @@
+[user]
+	name = Hannu Lyytikainen
+	email = hannu.lyytikainen@gofore.com
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status -sb
+	standup = log --since yesterday --author 'Hannu Lyytikainen'
+	lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	mg = merge
+	rb = rebase
+	cp = cherry-pick
+[push]
+	default = simple
