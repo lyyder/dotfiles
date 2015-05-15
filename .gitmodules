@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule ".vim/bundle/vim-classpath"]
+	path = .vim/bundle/vim-classpath
+	url = git@github.com:tpope/vim-classpath.git
