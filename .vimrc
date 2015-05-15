@@ -51,3 +51,9 @@ call arpeggio#map('icvx', '', 0, 'jl', '<Esc>A')
 " call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
 call arpeggio#map('icvx', '', 0, 'ln', '<Esc>o')
 call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
+
+" Turn on Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
