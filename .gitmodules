@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/vim-arpeggio"]
 	path = .vim/bundle/vim-arpeggio
 	url = git@github.com:kana/vim-arpeggio.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
