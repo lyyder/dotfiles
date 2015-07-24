@@ -24,6 +24,9 @@ set number
 :set ignorecase
 :set smartcase
 
+" leader
+:let mapleader = "-"
+
 " quick start NERDTree
 :nmap <C-n><C-t> :NERDTree<CR>
 
@@ -33,9 +36,6 @@ set number
 
 " select a word
 map <space> viw
-
-" move a line downwards
-map - ddp
 
 " insert to the end of line from isert mode
 inoremap öö <esc>A
