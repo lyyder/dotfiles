@@ -1,7 +1,7 @@
 " color scheme
-if has("gui_running")
+" if has("gui_running")
 colorscheme desert
-endif
+" endif
 
 " pathogen.vim
 call pathogen#infect()
