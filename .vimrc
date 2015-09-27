@@ -1,11 +1,9 @@
-" color scheme
-" if has("gui_running")
-colorscheme desert
-" endif
-
 " pathogen.vim
 call pathogen#infect()
 Helptags
+
+" color scheme
+colorscheme desert
 syntax on
 filetype plugin indent on
 
@@ -23,6 +21,10 @@ set number
 :set incsearch
 :set ignorecase
 :set smartcase
+
+" cursor shape
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " leader
 :let mapleader = "-"
