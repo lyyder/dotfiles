@@ -3,7 +3,7 @@ call pathogen#infect()
 Helptags
 
 " color scheme
-colorscheme desert
+colorscheme smyck
 syntax on
 filetype plugin indent on
 
