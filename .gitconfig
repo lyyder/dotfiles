@@ -3,6 +3,7 @@
 	email = hannu.lyytikainen@gofore.com
 [core]
 	editor = vim
+	excludesfile = /Users/hannu/.gitignore
 [merge]
 	tool = vimdiff
 [color]
@@ -19,3 +20,5 @@
 	cp = cherry-pick
 [push]
 	default = simple
+[pull]
+	rebase = true
