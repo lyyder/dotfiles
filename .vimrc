@@ -50,9 +50,10 @@ imap <C-E> <esc>:Eval
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'hl', '<Esc>I')
 call arpeggio#map('icvx', '', 0, 'jl', '<Esc>A')
-" call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
+call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
 call arpeggio#map('icvx', '', 0, 'ln', '<Esc>o')
 call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
+call arpeggio#map('n', '', 0, 'wq', ':wq<Enter>')
 
 " Turn on Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
