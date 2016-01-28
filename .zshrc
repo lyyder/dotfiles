@@ -1,4 +1,3 @@
-
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 
@@ -54,7 +53,7 @@ ZSH_THEME="sunaku"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git vagrant vi-mode)
+plugins=(git vi-mode docker)
 
 source $ZSH/oh-my-zsh.sh
 
