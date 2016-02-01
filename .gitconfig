@@ -1,6 +1,6 @@
 [user]
 	name = Hannu Lyytikainen
-	email = hannu.lyytikainen@gofore.com
+	email = hannu@sharetribe.com
 [core]
 	editor = vim
 	excludesfile = /Users/hannu/.gitignore
@@ -9,15 +9,6 @@
 [color]
 	ui = true
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status -sb
-	standup = log --since yesterday --author 'Hannu Lyytikainen'
-	lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	mg = merge
-	rb = rebase
-	cp = cherry-pick
 [push]
 	default = simple
 [pull]
