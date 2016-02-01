@@ -53,7 +53,7 @@ ZSH_THEME="sunaku"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git vi-mode docker)
+plugins=(git vi-mode docker brew)
 
 source $ZSH/oh-my-zsh.sh
 
