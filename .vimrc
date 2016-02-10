@@ -3,7 +3,7 @@ call pathogen#infect()
 Helptags
 
 " color scheme
-colorscheme smyck
+colorscheme kafka
 syntax on
 filetype plugin indent on
 
@@ -21,6 +21,9 @@ set number
 :set incsearch
 :set ignorecase
 :set smartcase
+
+" automatically detect changes and relaod files
+:set autoread
 
 " cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -54,6 +57,8 @@ call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
 call arpeggio#map('icvx', '', 0, 'ln', '<Esc>o')
 call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
 call arpeggio#map('n', '', 0, 'wq', ':wq<Enter>')
+call arpeggio#map('icvxn', '', 0, 'jf', '<Esc>:w<Enter>')
+call arpeggio#map('n', '', 0, 'er', ':Require<Enter>')
 
 " Turn on Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
