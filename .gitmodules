@@ -36,3 +36,6 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule ".vim/bundle/vim-better-whitespace"]
+	path = .vim/bundle/vim-better-whitespace
+	url = git@github.com:ntpeters/vim-better-whitespace.git
