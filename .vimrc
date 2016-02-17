@@ -47,8 +47,8 @@ inoremap öö <esc>A
 " exit insert mode with jj
 imap jj <esc>
 
-" fireplace.vim
-imap <C-E> <esc>:Eval 
+" fire up fireplace's omnicomplete
+imap <C-Space> <C-x><C-o>
 
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'hl', '<Esc>I')
@@ -56,7 +56,7 @@ call arpeggio#map('icvx', '', 0, 'jl', '<Esc>A')
 call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
 call arpeggio#map('icvx', '', 0, 'ln', '<Esc>o')
 call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
-call arpeggio#map('n', '', 0, 'wq', ':wq<Enter>')
+call arpeggio#map('n', '', 0, 'wq', ':q<Enter>')
 call arpeggio#map('icvxn', '', 0, 'jf', '<Esc>:w<Enter>')
 call arpeggio#map('n', '', 0, 'er', ':Require<Enter>')
 
