@@ -57,7 +57,8 @@ call arpeggio#map('icvx', '', 0, 'kn', '<Esc>O')
 call arpeggio#map('icvx', '', 0, 'ln', '<Esc>o')
 call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
 call arpeggio#map('n', '', 0, 'wq', ':q<Enter>')
-call arpeggio#map('icvxn', '', 0, 'jf', '<Esc>:w<Enter>')
+call arpeggio#map('icvx', '', 0, 'jf', '<Esc>:w<Enter>')
+call arpeggio#map('n', '', 0, 'jf', ':w<Enter>')
 call arpeggio#map('n', '', 0, 'er', ':Require<Enter>')
 
 " Turn on Rainbow Parentheses
