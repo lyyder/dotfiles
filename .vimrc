@@ -42,11 +42,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " select a word
 map <space> viw
 
-" insert to the end of line from isert mode
-inoremap öö <esc>A
-" exit insert mode with jj
-imap jj <esc>
-
 " fire up fireplace's omnicomplete
 imap <C-Space> <C-x><C-o>
 
