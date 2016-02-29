@@ -1,7 +1,7 @@
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 
-# Vim 
+# Vim
 export PATH=/opt/local/bin:$PATH
 
 # tig start alias
@@ -9,6 +9,10 @@ alias tig='tig status'
 
 # parent directory completion
 zstyle ':completion:*' special-dirs true
+
+# heartbeat file aliases
+alias hbedit='vim ~/Documents/heartbeat'
+alias hbcopy='cat ~/Documents/heartbeat | pbcopy'
 
 # include tool configurations
 [ -f ~/.toolsrc ] && source ~/.toolsrc
