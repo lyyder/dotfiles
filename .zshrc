@@ -14,6 +14,9 @@ zstyle ':completion:*' special-dirs true
 alias hbedit='vim ~/Documents/heartbeat'
 alias hbcopy='cat ~/Documents/heartbeat | pbcopy'
 
+# git aliases
+alias gpf='git push --force-with-lease'
+
 # include tool configurations
 [ -f ~/.toolsrc ] && source ~/.toolsrc
 
