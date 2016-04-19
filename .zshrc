@@ -12,7 +12,9 @@ zstyle ':completion:*' special-dirs true
 
 # heartbeat file aliases
 alias hbedit='vim ~/Documents/heartbeat'
+alias hbe='vim ~/Documents/heartbeat'
 alias hbcopy='cat ~/Documents/heartbeat | pbcopy'
+alias hbc='cat ~/Documents/heartbeat | pbcopy'
 
 # git aliases
 alias gpf='git push --force-with-lease'
