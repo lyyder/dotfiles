@@ -25,6 +25,10 @@ set smartcase
 " automatically detect changes and relaod files
 set autoread
 
+" open new split panes to right/bottom
+set splitbelow
+set splitright
+
 " cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
