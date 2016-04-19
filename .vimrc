@@ -18,26 +18,26 @@ set expandtab
 set number
 
 " search
-:set incsearch
-:set ignorecase
-:set smartcase
+set incsearch
+set ignorecase
+set smartcase
 
 " automatically detect changes and relaod files
-:set autoread
+set autoread
 
 " cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " leader
-:let mapleader = "-"
+let mapleader = "-"
 
 " quick start NERDTree
-:nmap <C-n><C-t> :NERDTree<CR>
+nmap <C-n><C-t> :NERDTree<CR>
 
 " navigate up and down 10 lines at a time
-:map <C-j> 10j
-:map <C-k> 10k
+map <C-j> 10j
+map <C-k> 10k
 
 " select a word
 map <space> viw
