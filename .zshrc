@@ -19,6 +19,10 @@ alias hbc='cat ~/Documents/heartbeat | pbcopy'
 # git aliases
 alias gpf='git push --force-with-lease'
 
+# nvm
+export NVM_DIR=~/.nvm
+  . $(brew --prefix nvm)/nvm.sh
+
 # include tool configurations
 [ -f ~/.toolsrc ] && source ~/.toolsrc
 
