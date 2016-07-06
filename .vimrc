@@ -36,8 +36,11 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " leader
 let mapleader = "-"
 
-" quick start NERDTree
+" NERDTree
+" quick start 
 nmap <C-n><C-t> :NERDTree<CR>
+" show dotfiles
+let NERDTreeShowHidden=1
 
 " navigate up and down 10 lines at a time
 map <C-j> 10j
