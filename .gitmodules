@@ -51,3 +51,6 @@
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = git@github.com:Raimondi/delimitMate.git
