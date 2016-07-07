@@ -37,7 +37,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let mapleader = "-"
 
 " NERDTree
-" quick start 
+" quick start
 nmap <C-n><C-t> :NERDTree<CR>
 " show dotfiles
 let NERDTreeShowHidden=1
@@ -51,6 +51,17 @@ map <space> viw
 
 " fire up fireplace's omnicomplete
 imap <C-Space> <C-x><C-o>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'hl', '<Esc>I')
