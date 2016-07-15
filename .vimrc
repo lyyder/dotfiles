@@ -14,6 +14,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" show filename/path
+set statusline+=%F
+
 " line mumbers
 set number
 
