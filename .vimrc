@@ -44,6 +44,8 @@ let mapleader = "-"
 nmap <C-n><C-t> :NERDTree<CR>
 " show dotfiles
 let NERDTreeShowHidden=1
+" ignored files
+let NERDTreeIgnore=['^npm-debug\.log.*', '\~$']
 
 " navigate up and down 10 lines at a time
 map <C-j> 10j
