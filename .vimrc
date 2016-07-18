@@ -66,6 +66,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["javascript", "html", "css"],
+    \ "passive_filetypes": [] }
+
+" Arpeggio
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'hl', '<Esc>I')
 call arpeggio#map('icvx', '', 0, 'jl', '<Esc>A')
