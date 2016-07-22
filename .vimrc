@@ -42,6 +42,8 @@ let mapleader = "-"
 " NERDTree
 " quick start
 nmap <C-n><C-t> :NERDTree<CR>
+" quick find
+nmap <C-n><C-t><C-f> :NERDTreeFind<CR>
 " show dotfiles
 let NERDTreeShowHidden=1
 " ignored files
