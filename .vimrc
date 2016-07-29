@@ -17,6 +17,9 @@ set expandtab
 " show filename/path
 set statusline+=%F
 
+" highlight cursorline
+set cursorline
+
 " line mumbers
 set number
 
