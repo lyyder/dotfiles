@@ -14,6 +14,11 @@ ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ```
 
+spacemacs:
+```
+ln -s ~/dotfiles/.spacemacs ~/.spacemacs
+```
+
 git:
 ```
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
