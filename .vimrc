@@ -102,10 +102,12 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-  " bind K to grep word under cursor
+  " bind T to grep word under cursor
   nnoremap T :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
   " Ag command
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow 20|redraw!
   " map backslash to grep shortcut
   nnoremap \ :Ag<SPACE>
+  " map single quote to grep literal shortcut
+  nnoremap ' :Ag<SPACE>-Q<SPACE>''<LEFT>
 endif
