@@ -59,8 +59,15 @@ map <C-k> 10k
 " select a word
 map <space> viw
 
+" Clojure
 " fire up fireplace's omnicomplete
 imap <C-Space> <C-x><C-o>
+" jump to function source
+map <Leader>gf [<C-d>
+" reload app
+map <Leader>re cqp(user/reset)<Enter>
+" refresh repl
+map <Leader>rf cqp(clojure.tools.namespace.repl/refresh)<Enter>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -86,7 +93,6 @@ call arpeggio#map('icvx', '', 0, 'ks', '<C-o>:w<cr>')
 call arpeggio#map('n', '', 0, 'wq', ':q<Enter>')
 call arpeggio#map('icvx', '', 0, 'jf', '<Esc>:w<Enter>')
 call arpeggio#map('n', '', 0, 'jf', ':w<Enter>')
-call arpeggio#map('n', '', 0, 'er', ':Require<Enter>')
 
 " Turn on Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
