@@ -1,3 +1,6 @@
 # rebase on top of given commit or branch
 bind main B !git rebase -i %(commit)
 bind refs B !git rebase -i %(branch)
+
+# stash current changes
+bind status S !git stash
