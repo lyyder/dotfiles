@@ -18,6 +18,7 @@ alias hbc='cat ~/Documents/heartbeat | pbcopy'
 
 # git aliases
 alias gpf='git push --force-with-lease'
+alias grbi2='git rebase -i HEAD~2'
 
 # nvm
 export NVM_DIR=~/.nvm
