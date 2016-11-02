@@ -40,7 +40,7 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " leader
-let mapleader = "-"
+let mapleader = "\<Space>"
 
 " NERDTree
 " quick start
@@ -55,9 +55,6 @@ let NERDTreeIgnore=['^npm-debug\.log.*', '\.swp$', '\~$']
 " navigate up and down 10 lines at a time
 map <C-j> 10j
 map <C-k> 10k
-
-" select a word
-map <space> viw
 
 " Clojure
 " fire up fireplace's omnicomplete
@@ -113,7 +110,7 @@ if executable('ag')
   " Ag command
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow 20|redraw!
   " map backslash to grep shortcut
-  nnoremap \ :Ag<SPACE>
+  nnoremap \ :Ag<Space>
   " map single quote to grep literal shortcut
-  nnoremap ' :Ag<SPACE>-Q<SPACE>''<LEFT>
+  nnoremap ' :Ag<Space>-Q<Space>''<Left>
 endif
