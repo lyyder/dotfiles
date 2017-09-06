@@ -7,6 +7,9 @@ colorscheme kafka
 syntax on
 filetype plugin indent on
 
+" leader
+let mapleader="-"
+
 set backspace=indent,eol,start
 
 " tab width
@@ -39,8 +42,8 @@ set splitright
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" leader
-let mapleader="-"
+" JSX support for .js files
+let g:jsx_ext_required = 0
 
 " NERDTree
 " quick start
