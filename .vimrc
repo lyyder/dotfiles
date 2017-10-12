@@ -59,6 +59,25 @@ let NERDTreeIgnore=['^npm-debug\.log.*', '\.swp$', '\~$']
 map <C-j> 10j
 map <C-k> 10k
 
+" First non whitespace character
+map ö ^
+
+" End of line
+map ä $
+
+" Begining of line
+map Ö 0
+
+" Last non space character
+map Ä g_
+
+" Same for visual mode
+vmap ö ^
+vmap ä $
+vmap Ö 0
+vmap Ä g_
+
+
 " Clojure
 " fire up fireplace's omnicomplete
 imap <C-Space> <C-x><C-o>
