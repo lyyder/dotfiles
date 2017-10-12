@@ -3,6 +3,7 @@ call pathogen#infect()
 Helptags
 
 " color scheme
+set termguicolors
 colorscheme kafka
 syntax on
 filetype plugin indent on
