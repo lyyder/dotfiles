@@ -24,9 +24,6 @@ alias grbi2='git rebase -i HEAD~2'
 export NVM_DIR=~/.nvm
   . $(brew --prefix nvm)/nvm.sh
 
-# include tool configurations
-[ -f ~/.toolsrc ] && source ~/.toolsrc
-
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
