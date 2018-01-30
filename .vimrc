@@ -59,6 +59,10 @@ let NERDTreeShowHidden=1
 " ignored files
 let NERDTreeIgnore=['^npm-debug\.log.*', '\.swp$', '\~$']
 
+" Fixes vim-airline with only one file open
+:set laststatus=2
+
+
 " navigate up and down 10 lines at a time
 map <C-j> 10j
 map <C-k> 10k
@@ -92,6 +96,7 @@ map <Leader>re cqp(user/reset)<Enter>
 " refresh repl
 map <Leader>rf cqp(clojure.tools.namespace.repl/refresh)<Enter>
 
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -109,6 +114,7 @@ let g:syntastic_mode_map = {
     \ "active_filetypes": ["javascript", "html", "css"],
     \ "passive_filetypes": [] }
 
+
 " Arpeggio
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'hl', '<Esc>I')
@@ -118,11 +124,13 @@ call arpeggio#map('n', '', 0, 'wq', ':q<Enter>')
 call arpeggio#map('icvx', '', 0, 'jf', '<Esc>:w<Enter>')
 call arpeggio#map('n', '', 0, 'jf', ':w<Enter>')
 
+
 " Turn on Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
 
 " The Silver Searcher
 if executable('ag')
