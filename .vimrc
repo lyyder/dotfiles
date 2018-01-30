@@ -49,19 +49,8 @@ au BufRead,BufNewFile *.md setlocal textwidth=100
 " JSX support for .js files
 let g:jsx_ext_required = 0
 
-" NERDTree
-" quick start
-nmap <C-n><C-t> :NERDTree<CR>
-" quick find
-nmap <C-n><C-t><C-f> :NERDTreeFind<CR>
-" show dotfiles
-let NERDTreeShowHidden=1
-" ignored files
-let NERDTreeIgnore=['^npm-debug\.log.*', '\.swp$', '\~$']
-
 " Fixes vim-airline with only one file open
 :set laststatus=2
-
 
 " navigate up and down 10 lines at a time
 map <C-j> 10j
@@ -84,6 +73,19 @@ vmap ö ^
 vmap ä $
 vmap Ö 0
 vmap Ä g_
+
+" Open an item from quickfix to a vertical split
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
+" NERDTree
+" quick start
+nmap <C-n><C-t> :NERDTree<CR>
+" quick find
+nmap <C-n><C-t><C-f> :NERDTreeFind<CR>
+" show dotfiles
+let NERDTreeShowHidden=1
+" ignored files
+let NERDTreeIgnore=['^npm-debug\.log.*', '\.swp$', '\~$']
 
 
 " Clojure
