@@ -77,6 +77,10 @@ vmap Ä g_
 " Open an item from quickfix to a vertical split
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
+" Wrap the line below into a tag
+nmap <Leader>t o<Esc>VS<
+
+
 " NERDTree
 " quick start
 nmap <C-n><C-t> :NERDTree<CR>
