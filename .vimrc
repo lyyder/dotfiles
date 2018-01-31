@@ -9,7 +9,7 @@ syntax on
 filetype plugin indent on
 
 " leader
-let mapleader="-"
+let mapleader=" "
 
 set backspace=indent,eol,start
 
