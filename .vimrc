@@ -49,8 +49,14 @@ au BufRead,BufNewFile *.md setlocal textwidth=100
 " JSX support for .js files
 let g:jsx_ext_required = 0
 
+" Show open buffers in vim-airline
+let g:airline#extensions#tabline#enabled = 1
 " Fixes vim-airline with only one file open
 :set laststatus=2
+
+" Next and previous buffers
+nmap <Leader>l :bn<Cr>
+nmap <Leader>h :bp<Cr>
 
 " navigate up and down 10 lines at a time
 map <C-j> 10j
