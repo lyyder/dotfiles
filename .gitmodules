@@ -66,3 +66,6 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/bundle/spacemacs-theme.vim"]
+	path = .vim/bundle/spacemacs-theme.vim
+	url = git@github.com:colepeters/spacemacs-theme.vim.git
