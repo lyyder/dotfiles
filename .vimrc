@@ -52,6 +52,9 @@ au BufRead,BufNewFile *.md setlocal textwidth=100
 " JSX support for .js files
 let g:jsx_ext_required = 0
 
+" run prettier on the current file
+noremap <Leader>p :silent !yarn run prettier --write %:.<Cr>
+
 " Show open buffers in vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " Fixes vim-airline with only one file open
