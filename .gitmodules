@@ -24,9 +24,6 @@
 [submodule ".vim/bundle/rainbow_parentheses.vim"]
 	path = .vim/bundle/rainbow_parentheses.vim
 	url = git@github.com:kien/rainbow_parentheses.vim.git
-[submodule ".vim/bundle/paredit.vim"]
-	path = .vim/bundle/paredit.vim
-	url = https://github.com/vim-scripts/paredit.vim
 [submodule ".vim/bundle/vim-javascript-syntax"]
 	path = .vim/bundle/vim-javascript-syntax
 	url = git@github.com:jelera/vim-javascript-syntax.git
@@ -72,3 +69,6 @@
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule ".vim/bundle/paredit"]
+	path = .vim/bundle/paredit
+	url = git@github.com:kovisoft/paredit.git
