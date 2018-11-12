@@ -55,6 +55,9 @@ let g:jsx_ext_required = 0
 " run prettier on the current file
 noremap <Leader>p :silent !yarn run prettier --write %:.<Cr>
 
+" In visual mode, copy the selected text to the system clipboard
+vnoremap <Leader>c :w !pbcopy<Cr>
+
 " Show open buffers in vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " Fixes vim-airline with only one file open
