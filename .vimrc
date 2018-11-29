@@ -30,6 +30,9 @@ set cursorline
 " line mumbers
 set number
 
+" hide scrollbars
+set guioptions=
+
 " search
 set incsearch
 set ignorecase
