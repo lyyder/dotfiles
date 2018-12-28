@@ -11,6 +11,9 @@ colorscheme spacemacs-theme
 syntax on
 filetype plugin indent on
 
+" font
+set guifont=Monaco:h12
+
 " leader
 let mapleader=" "
 
