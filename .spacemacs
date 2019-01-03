@@ -320,7 +320,11 @@ you should place your code here."
   (setq neo-theme 'arrow)
 
   ;; Clojure
+
+  ;; Paredit key bindings for smartparens commands
   (sp-use-paredit-bindings)
+  ;; Keybinding for raise-sexp
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "i" 'raise-sexp)
 
   )
 
