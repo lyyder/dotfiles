@@ -20,6 +20,9 @@ alias hbc='cat ~/Documents/heartbeat | pbcopy'
 alias gpf='git push --force-with-lease'
 alias grbi2='git rebase -i HEAD~2'
 
+# start the emacs client
+alias e='emacsclient --no-wait'
+
 # nvm
 export NVM_DIR=~/.nvm
   . $(brew --prefix nvm)/nvm.sh
