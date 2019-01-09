@@ -101,6 +101,10 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 " Wrap the line below into a tag
 nmap <Leader>t o<Esc>VS<
 
+" Spacemacs mappings
+nmap <Leader>fs :w<Cr>
+nmap <Leader>wd :q<Cr>
+
 
 " NERDTree
 " quick start
