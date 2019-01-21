@@ -44,7 +44,10 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     git
+     (git :variables
+          git-magit-status-fullscreen t
+          git-enable-github-support t
+          git-gutter-use-fringe t)
      ;; markdown
      ;; org
      ;; (shell :variables
