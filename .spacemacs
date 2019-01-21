@@ -324,8 +324,8 @@ you should place your code here."
   ;; Paredit key bindings for smartparens commands
   (sp-use-paredit-bindings)
   ;; Major mode keybindings
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "R" 'raise-sexp)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "I" 'indent-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "R" 'sp-raise-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "I" 'sp-indent-defun)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "[" 'sp-wrap-square)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "{" 'sp-wrap-curly)
