@@ -345,19 +345,23 @@ you should place your code here."
   ;; Major mode keybindings
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "R" 'sp-raise-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "I" 'sp-indent-defun)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "D" #'my-cider-dev-db-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "[" 'sp-wrap-square)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "{" 'sp-wrap-curly)
-
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ar" 'sp-raise-sexp)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ai" 'sp-indent-defun)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "af" #'my-cider-reset)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jr" 'sp-raise-sexp)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ji" 'sp-indent-defun)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jf" #'my-cider-reset)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jd" #'my-cider-dev-db-reset)
+  ;; wip
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jj" #'my-eval-eval-current-sexp)
 
+  ;; Figwheel
+  (setq cider-cljs-lein-repl
+        "(do (require 'figwheel-sidecar.repl-api)
+       (figwheel-sidecar.repl-api/start-figwheel!)
+       (figwheel-sidecar.repl-api/cljs-repl))")
+
+
+  ;; Fix NeoTree split resizing
+  (setq neo-window-fixed-size nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
