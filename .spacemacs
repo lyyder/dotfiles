@@ -35,20 +35,20 @@ values."
      clojure
      markdown
      javascript
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      helm
      auto-completion
-     ;; better-defaults
      emacs-lisp
      (git :variables
           git-magit-status-fullscreen t
           git-enable-github-support t
           git-gutter-use-fringe t)
-     ;; markdown
+
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     ;; better-defaults
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -63,6 +63,8 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       evil-smartparens
+                                      rjsx-mode
+                                      exec-path-from-shell
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -309,6 +311,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  ;; Automatically refresh buffers when the underlying file changes.
+  (global-auto-revert-mode t)
   )
 
 (defun dotspacemacs/user-config ()
@@ -319,10 +324,22 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; NeoTree
+  ;; sync PATH with shell
+  (use-package exec-path-from-shell
+    :if (memq window-system '(mac ns))
+    :config (exec-path-from-shell-initialize))
+
+  ;; NeoTree theme
   (setq neo-theme 'arrow)
 
+  ;; Fix NeoTree split resizing
+  (setq neo-window-fixed-size nil)
+
+  ;; Navigate between WORDS
+  (defalias 'forward-evil-word 'forward-evil-symbol)
+
   ;; Clojure
+  ;;
 
   (defun my-cider-reset ()
     (interactive)
@@ -350,6 +367,8 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "[" 'sp-wrap-square)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "{" 'sp-wrap-curly)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "<" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode ">" 'sp-forward-slurp-sexp)
   ;; wip
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jj" #'my-eval-eval-current-sexp)
 
@@ -360,9 +379,41 @@ you should place your code here."
        (figwheel-sidecar.repl-api/cljs-repl))")
 
 
-  ;; Fix NeoTree split resizing
-  (setq neo-window-fixed-size nil)
-  )
+  ;; JavaScript
+  ;;
+
+  (use-package rjsx-mode
+    :mode (("\\.js\\'" . rjsx-mode))
+    :init
+    (setq js2-highlight-level 3
+          js2-mode-assume-strict t
+          js2-strict-trailing-comma-warning nil
+          js2-missing-semi-one-line-override t
+          js2-allow-rhino-new-expr-initializer nil
+          js2-global-externs '("jest"
+                               "require"
+                               "describe"
+                               "it"
+                               "test"
+                               "expect"
+                               "afterEach"
+                               "beforeEach"
+                               "afterAll"
+                               "beforeAll")
+          js2-include-node-externs t
+          js2-warn-about-unused-function-arguments t
+          js2-basic-offset 2
+          js-switch-indent-offset 2)
+    (add-hook 'rjsx-mode-hook (lambda ()
+                                (subword-mode 1)
+                                (diminish 'subword-mode)
+                                (js2-imenu-extras-mode 1)))
+    :config
+    (use-package tern
+      :diminish tern-mode
+      :init
+      (add-hook 'rjsx-mode-hook 'tern-mode))
+    (use-package js-doc)))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -373,7 +424,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor helm-css-scss haml-mode evil-smartparens clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider sesman queue clojure-mode mmm-mode markdown-toc markdown-mode gh-md skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
+    (rjsx-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor helm-css-scss haml-mode evil-smartparens clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider sesman queue clojure-mode mmm-mode markdown-toc markdown-mode gh-md skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
