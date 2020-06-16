@@ -31,10 +31,16 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
+     php
+     ruby
      html
-     clojure
+     (clojure :variables
+              ; clojure-enable-fancify-symbols t
+              clojure-enable-clj-refactor t)
      markdown
      javascript
+     react
      helm
      auto-completion
      emacs-lisp
@@ -42,6 +48,7 @@ values."
           git-magit-status-fullscreen t
           git-enable-github-support t
           git-gutter-use-fringe t)
+     org
 
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -49,7 +56,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; better-defaults
-     ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -63,13 +69,16 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       evil-smartparens
-                                      rjsx-mode
+                                      ;rjsx-mode
                                       exec-path-from-shell
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    ;; Circumventing the "Symbol’s function definition is void: org-projectile:per-repo" issue
+                                    org-projectile
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -138,7 +147,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+                         spacemacs-light
+                         misterioso)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -338,6 +348,15 @@ you should place your code here."
   ;; Navigate between WORDS
   (defalias 'forward-evil-word 'forward-evil-symbol)
 
+  ;; Bind ä and ö characters to their keyboard layout counterparts
+  (define-key key-translation-map (kbd "M-;") (kbd "ö"))
+  (define-key key-translation-map (kbd "M-:") (kbd "Ö"))
+  (define-key key-translation-map (kbd "M-'") (kbd "ä"))
+  (define-key key-translation-map (kbd "M-\"") (kbd "Ä"))
+
+  ;; General key bindings
+  (spacemacs/set-leader-keys "si" 'helm-imenu)
+
   ;; Clojure
   ;;
 
@@ -360,8 +379,6 @@ you should place your code here."
   ;; Paredit key bindings for smartparens commands
   (sp-use-paredit-bindings)
   ;; Major mode keybindings
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "R" 'sp-raise-sexp)
-  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "I" 'sp-indent-defun)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "F" #'my-cider-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "D" #'my-cider-dev-db-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "(" 'sp-wrap-round)
@@ -369,6 +386,34 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "{" 'sp-wrap-curly)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "<" 'sp-backward-slurp-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode ">" 'sp-forward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ak" 'sp-kill-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ar" 'sp-raise-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "ai" 'sp-indent-defun)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "abs" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "afs" 'sp-forward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "abb" 'sp-backward-barf-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "afb" 'sp-forward-barf-sexp)
+
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "R" 'sp-raise-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "I" 'sp-indent-defun)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "D" #'my-cider-dev-db-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "(" 'sp-wrap-round)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "[" 'sp-wrap-square)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "{" 'sp-wrap-curly)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "<" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode ">" 'sp-forward-slurp-sexp)
+
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "R" 'sp-raise-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "I" 'sp-indent-defun)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "D" #'my-cider-dev-db-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "(" 'sp-wrap-round)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "[" 'sp-wrap-square)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "{" 'sp-wrap-curly)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "<" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode ">" 'sp-forward-slurp-sexp)
+
   ;; wip
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jj" #'my-eval-eval-current-sexp)
 
@@ -382,38 +427,55 @@ you should place your code here."
   ;; JavaScript
   ;;
 
-  (use-package rjsx-mode
-    :mode (("\\.js\\'" . rjsx-mode))
-    :init
-    (setq js2-highlight-level 3
-          js2-mode-assume-strict t
-          js2-strict-trailing-comma-warning nil
-          js2-missing-semi-one-line-override t
-          js2-allow-rhino-new-expr-initializer nil
-          js2-global-externs '("jest"
-                               "require"
-                               "describe"
-                               "it"
-                               "test"
-                               "expect"
-                               "afterEach"
-                               "beforeEach"
-                               "afterAll"
-                               "beforeAll")
-          js2-include-node-externs t
-          js2-warn-about-unused-function-arguments t
-          js2-basic-offset 2
-          js-switch-indent-offset 2)
-    (add-hook 'rjsx-mode-hook (lambda ()
-                                (subword-mode 1)
-                                (diminish 'subword-mode)
-                                (js2-imenu-extras-mode 1)))
-    :config
-    (use-package tern
-      :diminish tern-mode
-      :init
-      (add-hook 'rjsx-mode-hook 'tern-mode))
-    (use-package js-doc)))
+  ;;(use-package rjsx-mode
+  ;;  :mode (("\\.js\\'" . rjsx-mode))
+  ;;  :init
+  ;;  (setq js2-highlight-level 3
+  ;;        js2-mode-assume-strict t
+  ;;        js2-strict-trailing-comma-warning nil
+  ;;        js2-missing-semi-one-line-override t
+  ;;        js2-allow-rhino-new-expr-initializer nil
+  ;;        js2-global-externs '("jest"
+  ;;                             "require"
+  ;;                             "describe"
+  ;;                             "it"
+  ;;                             "test"
+  ;;                             "expect"
+  ;;                             "afterEach"
+  ;;                             "beforeEach"
+  ;;                             "afterAll"
+  ;;                             "beforeAll")
+  ;;        js2-include-node-externs t
+  ;;        js2-warn-about-unused-function-arguments t
+  ;;        js2-basic-offset 2
+  ;;        js-switch-indent-offset 2)
+  ;;  (add-hook 'rjsx-mode-hook (lambda ()
+  ;;                              (subword-mode 1)
+  ;;                              (diminish 'subword-mode)
+  ;;                              (js2-imenu-extras-mode 1)))
+  ;;  :config
+  ;;  (use-package tern
+  ;;    :diminish tern-mode
+  ;;    :init
+  ;;    (add-hook 'rjsx-mode-hook 'tern-mode))
+  ;;  (use-package js-doc))
+
+  (sp-local-pair 'react-mode "<" ">" :actions nil)
+
+  (setenv "PATH" (concat (getenv "PATH") ":/Users/hannu/.nvm/versions/node/v10.14.0/bin/"))
+  (setq exec-path (append exec-path '("/Users/hannu/.nvm/versions/node/v10.14.0/bin/")))
+
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
+
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "gg" 'js2-jump-to-definition) ;
+
+  ;; Web mode
+  ;;
+
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -422,9 +484,11 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (rjsx-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor helm-css-scss haml-mode evil-smartparens clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider sesman queue clojure-mode mmm-mode markdown-toc markdown-mode gh-md skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link))))
+    (yaml-mode phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby powerline projectile hydra lv parseedn parseclj a avy anzu iedit smartparens f evil goto-chg helm helm-core transient async dash org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot rjsx-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor helm-css-scss haml-mode evil-smartparens clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider sesman queue clojure-mode mmm-mode markdown-toc markdown-mode gh-md skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum livid-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
+ '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
