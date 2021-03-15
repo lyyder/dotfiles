@@ -44,10 +44,6 @@ values."
      helm
      auto-completion
      emacs-lisp
-     (git :variables
-          git-magit-status-fullscreen t
-          git-enable-github-support t
-          git-gutter-use-fringe t)
      org
 
      ;; ----------------------------------------------------------------
