@@ -4,3 +4,6 @@ bind refs B !git rebase -i %(branch)
 
 # stash current changes
 bind status S !git stash
+
+# reset --soft on top of given commit
+bind main R !git reset --soft %(commit)
