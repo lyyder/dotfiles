@@ -356,6 +356,13 @@ you should place your code here."
   ;; Clojure
   ;;
 
+  ;; clj-kondo
+  ;(add-hook 'clojure-mode-hook #'flycheck-mode)
+  ;(use-package clojure-mode
+  ;  :ensure t
+  ;  :config
+  ;  (require 'flycheck-clj-kondo))
+
   (defun my-cider-reset ()
     (interactive)
     (cider-ensure-connected)
