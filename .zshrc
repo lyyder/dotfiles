@@ -4,6 +4,9 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 # Vim
 export PATH=/opt/local/bin:$PATH
 
+# Java
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+
 # tig start alias
 alias tig='tig status'
 
