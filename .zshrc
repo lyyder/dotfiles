@@ -4,25 +4,25 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 # Vim
 export PATH=/opt/local/bin:$PATH
 
-# Java
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+# start the emacs client
+alias e='emacsclient --no-wait'
 
 # tig start alias
 alias tig='tig status'
-
-# parent directory completion
-zstyle ':completion:*' special-dirs true
 
 # git aliases
 alias gpf='git push --force-with-lease'
 alias grbi2='git rebase -i HEAD~2'
 
-# start the emacs client
-alias e='emacsclient --no-wait'
+# parent directory completion
+zstyle ':completion:*' special-dirs true
 
 # nvm
 export NVM_DIR=~/.nvm
   . $(brew --prefix nvm)/nvm.sh
+
+# Java
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -70,3 +70,6 @@ source $ZSH/oh-my-zsh.sh
 
 # enamble command history search in vi-mode
 bindkey '^R' history-incremental-search-backward
+
+# Include Sharetribe specific tooling
+source ~/dotfiles/.strc

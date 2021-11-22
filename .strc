@@ -1,0 +1,4 @@
+# Start core dev/test/doc containers
+alias core-dev='docker-compose up --force-recreate datomic elasticsearch redis minio thumbor postgres; docker-compose down -v --remove-orphans'
+alias core-test='docker-compose -f docker-compose.test.yml up ; docker-compose -f docker-compose.test.yml stop ; docker-compose -f docker-compose.test.yml rm -v'
+alias core-doc='docker-compose -f docker-compose.docs-dev.yml up ; docker-compose -f docker-compose.docs-dev.yml down -v'
