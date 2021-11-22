@@ -20,10 +20,6 @@ zstyle ':completion:*' special-dirs true
 # Homebrew
 export PATH=/opt/homebrew/bin:$PATH
 
-# nvm
-export NVM_DIR=~/.nvm
-  . $(brew --prefix nvm)/nvm.sh
-
 # Java
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
@@ -67,7 +63,7 @@ ZSH_THEME="sunaku"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git vi-mode)
+plugins=(git vi-mode zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
