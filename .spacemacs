@@ -45,6 +45,8 @@ values."
      auto-completion
      emacs-lisp
      org
+     spell-checking
+     syntax-checking
 
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -55,8 +57,6 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
