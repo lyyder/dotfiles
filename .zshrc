@@ -25,7 +25,7 @@ export NVM_DIR=~/.nvm
   . $(brew --prefix nvm)/nvm.sh
 
 # Java
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
