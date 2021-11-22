@@ -17,6 +17,9 @@ alias grbi2='git rebase -i HEAD~2'
 # parent directory completion
 zstyle ':completion:*' special-dirs true
 
+# Homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
 # nvm
 export NVM_DIR=~/.nvm
   . $(brew --prefix nvm)/nvm.sh
