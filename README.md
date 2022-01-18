@@ -17,6 +17,7 @@ ln -s ~/dotfiles/.vimrc ~/.vimrc
 spacemacs:
 ```
 ln -s ~/dotfiles/.spacemacs ~/.spacemacs
+ln -s ~/dotfiles/.spacemacs.env ~/.spacemacs.env
 ```
 
 git:
