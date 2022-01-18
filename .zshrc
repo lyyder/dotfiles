@@ -19,6 +19,8 @@ zstyle ':completion:*' special-dirs true
 
 # Homebrew
 export PATH=/opt/homebrew/bin:$PATH
+# Homebrew packages installed via Rosetta2
+export PATH=/usr/local/homebrew/bin:$PATH
 
 # Java
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
