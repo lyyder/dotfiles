@@ -25,6 +25,9 @@ export PATH=/usr/local/homebrew/bin:$PATH
 # Java
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
+# Yarn
+export PATH="$(yarn global bin):$PATH"
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
