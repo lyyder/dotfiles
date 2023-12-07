@@ -413,6 +413,10 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "ar" 'sp-raise-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "ai" 'sp-indent-defun)
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "ay" 'sp-copy-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "abs" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "afs" 'sp-forward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "abb" 'sp-backward-barf-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "afb" 'sp-forward-barf-sexp)
 
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "F" #'my-cider-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "D" #'my-cider-dev-db-reset)
@@ -425,6 +429,10 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "ar" 'sp-raise-sexp)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "ai" 'sp-indent-defun)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "ay" 'sp-copy-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "abs" 'sp-backward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "afs" 'sp-forward-slurp-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "abb" 'sp-backward-barf-sexp)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "afb" 'sp-forward-barf-sexp)
 
   ;; wip
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "jj" #'my-eval-eval-current-sexp)
