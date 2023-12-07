@@ -37,7 +37,8 @@ values."
      html
      (clojure :variables
               ; clojure-enable-fancify-symbols t
-              clojure-enable-clj-refactor t)
+              clojure-enable-clj-refactor t
+              clojure-enable-linters 'clj-kondo)
      markdown
      javascript
      react
