@@ -2,3 +2,11 @@
 alias core-dev='docker-compose -f docker-compose-arm.yml up --force-recreate datomic elasticsearch redis minio thumbor postgres; docker-compose -f docker-compose-arm.yml down -v --remove-orphans'
 alias core-test='docker-compose -f docker-compose-arm.test.yml up ; docker-compose -f docker-compose-arm.test.yml stop ; docker-compose -f docker-compose-arm.test.yml rm -v --remove-orphans'
 alias core-doc='docker-compose -f docker-compose.docs-dev.yml up ; docker-compose -f docker-compose.docs-dev.yml down -v'
+
+# Start convox worker with admin repl
+alias prod-repl='convox run worker "bash -c \"./scripts/admin_repl.sh prod\"" --app core2 --rack sharetribe/production-eu'
+alias stage-repl='convox run worker "bash -c \"./scripts/admin_repl.sh prod\"" --app core --rack sharetribe/staging'
+
+# Edit good morning file
+alias good='e ~/good-morning.md'
+alias cgood='cat ~/good-morning.md | pbcopy'
