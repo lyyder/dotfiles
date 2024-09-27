@@ -7,7 +7,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark
-colorscheme spacemacs-theme
+"colorscheme spacemacs-theme
 syntax on
 filetype plugin indent on
 
