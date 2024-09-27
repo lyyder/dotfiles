@@ -373,6 +373,12 @@ you should place your code here."
     (save-some-buffers)
     (cider-interactive-eval "(user/reset)"))
 
+  (defun my-cider-stop ()
+    (interactive)
+    (cider-ensure-connected)
+    (save-some-buffers)
+    (cider-interactive-eval "(user/stop)"))
+
   (defun my-cider-dev-db-reset ()
     (interactive)
     (cider-ensure-connected)
@@ -387,7 +393,9 @@ you should place your code here."
   (sp-use-paredit-bindings)
   ;; Major mode keybindings
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "S" #'my-cider-stop)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "D" #'my-cider-dev-db-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "F" #'my-cider-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "[" 'sp-wrap-square)
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "{" 'sp-wrap-curly)
@@ -403,6 +411,7 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "afb" 'sp-forward-barf-sexp)
 
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "S" #'my-cider-stop)
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "D" #'my-cider-dev-db-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "[" 'sp-wrap-square)
@@ -419,6 +428,7 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'clojurescript-mode "afb" 'sp-forward-barf-sexp)
 
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "F" #'my-cider-reset)
+  (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "S" #'my-cider-stop)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "D" #'my-cider-dev-db-reset)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "(" 'sp-wrap-round)
   (spacemacs/set-leader-keys-for-major-mode 'clojurec-mode "[" 'sp-wrap-square)
