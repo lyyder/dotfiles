@@ -8,6 +8,10 @@ zshrc:
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 
+doom:
+```
+ln -s ~/dotfiles/.doom.d ~/.doom.d
+
 vim:
 ```
 ln -s ~/dotfiles/.vim ~/.vim
