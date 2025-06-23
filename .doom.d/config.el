@@ -95,3 +95,37 @@
 
 (after! smartparens
   (sp-pair "(" ")" :unless nil))
+
+;; Standard vim s key behaviour
+(after! evil-snipe
+  (evil-snipe-mode -1))
+
+(defun my-cider-reset ()
+  (interactive)
+  (cider-ensure-connected)
+  (save-some-buffers)
+  (cider-interactive-eval "(user/reset)"))
+
+(defun my-cider-stop ()
+  (interactive)
+  (cider-ensure-connected)
+  (save-some-buffers)
+  (cider-interactive-eval "(user/stop)"))
+
+(defun my-cider-dev-db-reset ()
+  (interactive)
+  (cider-ensure-connected)
+  (save-some-buffers)
+  (cider-interactive-eval "(user/reset-dev-db)"))
+
+(map! :leader
+      :n
+      "m F" #'my-cider-reset)
+
+(map! :leader
+      :n
+      "m D" #'my-cider-dev-db-reset)
+
+(map! :leader
+      :n
+      "m S" #'my-cider-stop)
