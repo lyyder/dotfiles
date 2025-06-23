@@ -74,3 +74,18 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! evil-smartparens
+  :after (evil smartparens)
+  :hook
+  (clojure-mode . evil-smartparens-mode)
+  (clojure-mode . smartparens-strict-mode)
+  (emacs-lisp-mode . evil-smartparens-mode)
+  (emacs-lisp-mode . smartparens-strict-mode)
+  (lisp-mode . evil-smartparens-mode)
+  (lisp-mode . smartparens-strict-mode)
+  :config
+  (setq evil-move-beyond-eol t))
+
+(after! smartparens
+  (sp-pair "(" ")" :unless nil))
