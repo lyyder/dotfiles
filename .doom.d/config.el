@@ -81,6 +81,15 @@
 ;; To achieve the same behaviour with RET, set
 ;; (setq +default-want-RET-continue-comments nil)
 (setq +evil-want-o/O-to-continue-comments nil)
+
+(map! :map evil-smartparens-mode-map
+      :n "C-l" #'sp-forward-sexp
+      :n "C-h" #'sp-backward-sexp
+
+      :n "> >" #'sp-forward-slurp-sexp
+      :n "> <" #'sp-forward-barf-sexp
+      :n "< <" #'sp-backward-slurp-sexp
+      :n "< >" #'sp-backward-barf-sexp)
 (use-package! evil-smartparens
   :after (evil smartparens)
   :hook
