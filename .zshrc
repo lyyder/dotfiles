@@ -26,7 +26,8 @@ export PATH=/opt/homebrew/bin:$PATH
 export PATH=/usr/local/homebrew/bin:$PATH
 
 # Java
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
 
 # Yarn
 export PATH="$(yarn global bin):$PATH"
