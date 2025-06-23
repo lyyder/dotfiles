@@ -119,6 +119,11 @@
       :n
       "m {" #'sp-wrap-curly)
 
+
+;; Smartparens
+(load! "+smartparens.el")
+
+
 (use-package! evil-smartparens
   :after (evil smartparens)
   :hook
