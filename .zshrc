@@ -4,6 +4,9 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
 # Vim
 export PATH=/opt/local/bin:$PATH
 
+# Add Doom to path
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
 # start the emacs client
 alias e='emacsclient --no-wait'
 
