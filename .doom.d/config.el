@@ -75,6 +75,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+;; Prevent comment from continuin on next/prev line with o/O
+;;
+;; To achieve the same behaviour with RET, set
+;; (setq +default-want-RET-continue-comments nil)
+(setq +evil-want-o/O-to-continue-comments nil)
 (use-package! evil-smartparens
   :after (evil smartparens)
   :hook
