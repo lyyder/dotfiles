@@ -47,3 +47,18 @@
         :desc "Round" "w" #'sp-wrap-round)
 
        :desc "Copy sexp" "y" #'sp-copy-sexp))
+
+(use-package! evil-smartparens
+  :after (evil smartparens)
+  :hook
+  (clojure-mode . evil-smartparens-mode)
+  (clojure-mode . smartparens-strict-mode)
+  (emacs-lisp-mode . evil-smartparens-mode)
+  (emacs-lisp-mode . smartparens-strict-mode)
+  (lisp-mode . evil-smartparens-mode)
+  (lisp-mode . smartparens-strict-mode)
+  :config
+  (setq evil-move-beyond-eol t))
+
+(after! smartparens
+  (sp-pair "(" ")" :unless nil))
