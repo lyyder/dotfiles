@@ -82,44 +82,6 @@
 ;; (setq +default-want-RET-continue-comments nil)
 (setq +evil-want-o/O-to-continue-comments nil)
 
-(map! :map evil-smartparens-mode-map
-      :n "C-l" #'sp-forward-sexp
-      :n "C-h" #'sp-backward-sexp
-
-      :n "> >" #'sp-forward-slurp-sexp
-      :n "> <" #'sp-forward-barf-sexp
-      :n "< <" #'sp-backward-slurp-sexp
-      :n "< >" #'sp-backward-barf-sexp)
-
-(map! :leader
-      :n
-      "m a k" #'sp-kill-sexp)
-
-(map! :leader
-      :n
-      "m a r" #'sp-raise-sexp)
-
-(map! :leader
-      :n
-      "m a y" #'sp-copy-sexp)
-
-(map! :leader
-      :n
-      "m a i" #'sp-indent-defun)
-
-(map! :leader
-      :n
-      "m (" #'sp-wrap-round)
-
-(map! :leader
-      :n
-      "m [" #'sp-wrap-square)
-
-(map! :leader
-      :n
-      "m {" #'sp-wrap-curly)
-
-
 ;; Smartparens
 (load! "+smartparens.el")
 
