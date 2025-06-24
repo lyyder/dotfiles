@@ -1,6 +1,6 @@
 ;;; +smartparens.el -*- lexical-binding: t; -*-
 
-;; Copied from:
+;; Initial version copied from:
 ;; https://github.com/practicalli/doom-emacs-config
 
 ;; A Spacemacs like Lisp state menu (without the transient state)
