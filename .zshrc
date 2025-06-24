@@ -10,6 +10,9 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 # start the emacs client
 alias e='emacsclient --no-wait'
 
+# start emacs in terminal with no window
+alias emacs='emacs -nw'
+
 # tig start alias
 alias tig='tig status'
 
